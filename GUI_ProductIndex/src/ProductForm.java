@@ -251,6 +251,18 @@ public class ProductForm {
                 appendTextToPanel(STR_PRINT_SORTED_BY_KEY_ERROR, enTextType.eError);
             }
         });
+        
+        Button_PrintReversedSortedByKey.addActionListener(actionEvent -> {
+            try {
+                MainProductTester.getDataToPrint(currentStrRadioKey, true);
+                addRecordsToTable(MainProductTester.sortedProductRecords);
+                
+                appendTextToPanel(STR_PRINT_INTO_TABLE_SUCCESS, enTextType.eSuccess);
+            } catch (Exception e) {
+                appendTextToPanel(STR_PRINT_SORTED_BY_KEY_ERROR, enTextType.eError);
+            }
+        });
+        
         Button_FindByValue.addActionListener(actionEvent -> {
             try {
                 addRecordsToTable(MainProductTester.findByKey(currentStrRadioKey, currentKeyForSearch));
